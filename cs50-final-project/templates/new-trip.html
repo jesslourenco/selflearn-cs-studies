@@ -5,13 +5,25 @@
 {% endblock %}
 
 {% block main %}
-<form action="/new-trip" method="post">
+<header class="header_titles">
+    <strong><h1> Create a Trip </h1></strong>
+</header>
+
+<br>  
+
+<form action="/new-trip" method="post" class="header_titles">
     <div class="form-group">
         <input autocomplete="off" autofocus class="form-control" name="name" placeholder="name your trip" type="text">
     </div>
     <div class="form-group">
         <input class="form-control" name="date" placeholder="when is it going to happen" type="date">
     </div>
+        <select name="icon" class="form-control">
+            <option disabled selected value="">Select an icon</option>
+            {% for img in images %}
+                <option>{{ img.name }}</option>
+            {% endfor %}
+        </select><br><br>
     <button class="btn btn-primary" type="submit">Create trip</button>
 </form>
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Welcome to the Traveler's App!
+    Your Trips
 {% endblock %}
 
 {% block main %}
@@ -11,33 +11,44 @@
             {{ get_flashed_messages() | join(" ") }}
         </div>
     </header>
-    {% endif %}
+    {% endif %}  
+    
+    <header class="header_titles">
+        <strong><h1> Trips </h1></strong>
+    </header>
+
+    <br>  
 
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-info active">
+        <label class="btn btn-lg btn-info active">
           <input type="radio" name="options" id="option1" autocomplete="off" onclick="location.href='/trips?filter=upcoming';" {% if is_upcoming %} checked {% endif %} > Upcoming
         </label>
-        <label class="btn btn-info">
+        <label class="btn btn-lg btn-info">
           <input type="radio" name="options" id="option2" autocomplete="off" onclick="location.href='/trips?filter=past';" {% if is_past %} checked {% endif %}> Past
         </label>
     </div>
     
     <br><br>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Trip id</th>
-                <th>Name</th>
-                <th>Date</th>
-            </tr>
-        </thead>
+    <table class="table table-borderless table-hover">
         <tbody>
             {% for trip in trips %}
              <tr>
-              <td>{{ trip.id }}</td>
-              <td>{{ trip.name }}</td>
-              <td>{{ trip.date }}</td>
+              <td><center>
+                  <img src="{{ trip.image }}">
+              </center></td>
+              <td>
+                  <strong> {{ trip.name }} </strong><br>
+                  {{ trip.date | format_date_string }} <br>
+                  Trip # {{ trip.id }} <br>
+                  {% if is_upcoming %} 
+                  <img src="/static/clock-icon.png"> in {{ trip.date | countdown }} days
+                  {% endif %}
+              </td>
+              <td>
+                  <br>
+                  <a href="/trips?action=delete" class="btn btn-danger">Delete</a>
+                  <a href="/trips?action=update" class="btn btn-secondary">Edit</a>
            </tr>
           {% endfor %}
           </tbody>

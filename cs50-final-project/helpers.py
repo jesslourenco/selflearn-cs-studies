@@ -20,8 +20,10 @@ def apology(message, code=400, img='https://i.imgur.com/CsCgN7Ll.png'):
         return s
     return render_template("apology.html", top=code, bottom=escape(message), img=img), code
 
-def current_day():
+def today_str():
     """Returns what day is today parsed to str"""
     now = datetime.now()
     now = now.strftime("%Y-%m-%d")
     return now
+
+
