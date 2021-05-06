@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome to the Traveler's App!
+{% endblock %}
+
+{% block main %}
+    {% if get_flashed_messages() %}
+    <header>
+        <div class="alert alert-success text-center" role="alert">
+            {{ get_flashed_messages() | join(" ") }}
+        </div>
+    </header>
+    {% endif %}
+
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-info active">
+          <input type="radio" name="options" id="option1" autocomplete="off" onclick="location.href='/trips?filter=upcoming';" {% if is_upcoming %} checked {% endif %} > Upcoming
+        </label>
+        <label class="btn btn-info">
+          <input type="radio" name="options" id="option2" autocomplete="off" onclick="location.href='/trips?filter=past';" {% if is_past %} checked {% endif %}> Past
+        </label>
+    </div>
+    
+    <br><br>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Trip id</th>
+                <th>Name</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trip in trips %}
+             <tr>
+              <td>{{ trip.id }}</td>
+              <td>{{ trip.name }}</td>
+              <td>{{ trip.date }}</td>
+           </tr>
+          {% endfor %}
+          </tbody>
+    </table>
+{% endblock %}
