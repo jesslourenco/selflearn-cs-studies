@@ -5,7 +5,7 @@ The application was built in Python using its framework Flask.
 
 ## GOALS
 ---
-1. This is my submission to [Harvard CS50 2020](https://cs50.harvard.edu/x/2021/) 's final project
+1. This is my submission to [Harvard CS50 2021](https://cs50.harvard.edu/x/2021/) 's final project
 2. Learn and practice CRUD functions
 3. Pick a fun project that I can revisit often and build up gradually as I learn new stuff
 
