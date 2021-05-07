@@ -47,8 +47,8 @@
               </td>
               <td>
                   <br>
-                  <a href="/trips?action=delete" class="btn btn-danger">Delete</a>
-                  <a href="/trips?action=update" class="btn btn-secondary">Edit</a>
+                  <a href="/delete-trip?id={{ trip.id }}" class="btn btn-danger">Delete</a>
+                  <a href="/update-trip?id={{ trip.id }}" class="btn btn-secondary">Edit</a>
            </tr>
           {% endfor %}
           </tbody>

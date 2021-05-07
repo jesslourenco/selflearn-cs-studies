@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome to the Traveler's App!
+{% endblock %}
+
+{% block main %}
+<header class="header_titles">
+    <strong><h1> Edit a Trip </h1></strong>
+</header>
+
+<br>  
+
+<form action="/update-trip" method="post" class="header_titles">
+    <input name="id" type="hidden" value="{{ trip_id }}">
+    <div class="form-group">
+        <input autocomplete="off" autofocus class="form-control" name="name" value="{{ name }}"" type="text">
+    </div>
+    <div class="form-group">
+        <input class="form-control" name="date" value="{{ date }}" type="date">
+    </div>
+        <select name="icon" class="form-control">
+            {% for img in images %}
+                {% if img.name == pic %}
+                    <option selected>{{ img.name }}</option>
+                {% else %}
+                    <option>{{ img.name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select><br><br>
+    <button class="btn btn-primary" type="submit">Update</button>
+</form>
+{% endblock %}

@@ -1,3 +1,4 @@
+"""Global const list of images"""
 image_options = [
                     {
                         'name':'Brazil',

@@ -4,7 +4,7 @@ from datetime import datetime
 from helpers import apology
 from config import *
 
-"""CRUD for trips"""
+"""CRUD for trips and a couple of helper functions"""
 
 def create_trip(db,trip_name, trip_date, img):
     """Creates a new trip record"""
@@ -12,6 +12,7 @@ def create_trip(db,trip_name, trip_date, img):
     for image in image_options:
         if image['name'] == img:
             img = image['link']
+            break
 
     db.execute("INSERT INTO Trips (name, date, image) VALUES (?,?,?)", trip_name, trip_date, img)
 
@@ -30,13 +31,39 @@ def read_trip(now, db, is_upcoming):
 
     return result
 
-def update_trip(db):
-    #TODO update information on existing trip
-    return
+def update_trip(db,trip_name,trip_date,trip_img,trip_id):
+    """Update database for selected trip"""
 
-def delete_trip(db):
-    #TODO delete trip
-    return
+    for image in image_options:
+        if image['name'] == trip_img:
+            trip_img = image['link']
+            break
+
+    db.execute("UPDATE Trips SET name = ?, date = ?, image = ? WHERE id = ?", trip_name, trip_date, trip_img, trip_id)
+
+def query_trip(db,trip_id):
+    """Returns trip information with the selected id in database"""
+
+    trip = db.execute("SELECT name, date, image FROM Trips WHERE id = ?", trip_id)
+
+    new_img = ''
+    for image in image_options:
+        if image['link'] == trip[0]['image']:
+            new_img = image['name']
+
+    results = {
+                    'name': trip[0]['name'],
+                    'date': trip[0]['date'],
+                    'image': new_img
+              }
+              
+    return results
+
+def delete_trip(db, trip_id):
+    """Delete trip with the selected id from database"""
+
+    db.execute("DELETE FROM Trips WHERE id = ?", trip_id)
+
 
 def validate_trip(name,date,now,img):
     """Ensures correct usage"""   
