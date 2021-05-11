@@ -9,6 +9,11 @@ The application was built in Python using its framework Flask.
 2. Learn and practice CRUD functions
 3. Pick a fun project that I can revisit often and build up gradually as I learn new stuff
 
+# DEMO
+---
+Watch a demo video here: https://youtu.be/X9k3VuZ8uto 
+
+
 ## PREREQUISITES
 ---
 - [Latest version of Python 3](https://www.python.org/)
