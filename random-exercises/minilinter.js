@@ -5,13 +5,12 @@ let overusedWords = ['really', 'very', 'basically'];
 let unnecessaryWords = ['extremely', 'literally', 'actually' ];
 
 let storyWord = story.split(' ');
-// console.log(storyWord.length);
+console.log('There are ' + storyWord.length + ' words in the paragraph.');
 
 const betterWords = storyWord.filter(word => {
   return !unnecessaryWords.includes(word);
 });
-
-// console.log(betterWords);
+//console.log(betterWords);
 
 function overusageCount(){
   let dict = {};
@@ -28,6 +27,21 @@ function overusageCount(){
   }
   return dict;
 }
-console.log(overusageCount());
+const dict = overusageCount();
+console.log("\nThese are overused words in it: ");
+const printOverUsedWords = Object.entries(dict).forEach(item => console.log(item[0] + ' appeared ' + item[1] + ' times.'));
 
+const sentenceCounter = storyWord.reduce((total,word) => {
+  let lastChar = word.length-1;
+  if (word[lastChar] === '!' || word[lastChar] === '.'){
+       total++;
+  }
+   return total;
+}, 0);
+console.log('\nIt has ' + sentenceCounter + ' sentences.\n');
 
+const reducedBetterWords = betterWords.reduce((string, word) => {
+  string += word + ' ';
+  return string; }, '');
+
+console.log("This is the paragraph without some unnecessary words: " + reducedBetterWords.replace(/\s+/g, ' ').trim());
