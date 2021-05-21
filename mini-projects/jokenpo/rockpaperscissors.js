@@ -1,6 +1,11 @@
 const getUserChoice = (userInput) => {
     userInput = userInput.toLowerCase();
-    return userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb' ? userInput : console.log('Please provide a valid input.');
+    if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb'){
+      return userInput;
+    }
+    else{
+      return false;
+    }
   }
   
   const getComputerChoice = () => {
@@ -44,8 +49,15 @@ const getUserChoice = (userInput) => {
   }
   
   const playRound = () => {
-    const promptChoice = prompt("Do you pick Rock, Paper or Scissors?");
-    const userChoice = getUserChoice(promptChoice);
+    let promptChoice = prompt("Do you pick Rock, Paper or Scissors?");
+    let userChoice = getUserChoice(promptChoice);
+   
+    while (userChoice === false){
+      promptChoice = prompt("Invalid Input. Do you pick Rock, Paper or Scissors?");
+      userChoice = getUserChoice(promptChoice);
+    }
+
+
     const computerChoice = getComputerChoice();
     console.log(`Player: ${userChoice}`);
     console.log(`PC: ${computerChoice}`);
