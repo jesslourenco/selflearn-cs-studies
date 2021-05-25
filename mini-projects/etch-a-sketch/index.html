@@ -9,15 +9,26 @@
     </head>
 
     <body>
-       <div id="grid-container"></div>
-       <footer>
-           <div id="grid-footer">
-                <button type="button" class="btn btn-info shadow-none mr-2"  >Grid Size</button>
-                <button type="button" class="btn btn-info shadow-none" onclick="clearGrid()">Clear</button>
-           </div>
+        <div id="container-round">
+            <div id="grid-container"></div>
+                <div class="grid-footer">
+                    <button type="button" class="btn btn-lg btn-info shadow-none mr-2" onclick="resizeEvent()">Grid Size</button>
+                    <button type="button" class="btn btn-lg btn-info shadow-none mr-2" onclick="clearGridEvent()">Clear</button>
+                </div>
+                <div class="grid-footer">
+                    <div class="btn-group" role="group" aria-label="Sketch Mode">
+                        <button id="classic" type="button" class="btn btn-warning">Classic Mode</button>
+                        <button id="modern" type="button" class="btn btn-warning">Modern Mode</button>
+                        <button id="colorful"type="button" class="btn btn-warning">Colorful Mode</button>
+                    </div>               
+            </div> 
+        </div>
+       
+        <footer>
+       
        </footer>
 
     </body>
     <!--<script src="etch-a-sketch.js"></script>-->
-    <script src="melhor.js"></script>
+    <script src="etch-a-sketch.js"></script>
 </html>
