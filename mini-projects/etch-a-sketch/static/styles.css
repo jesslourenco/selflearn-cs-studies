@@ -1,9 +1,17 @@
+#grid-footer {
+  max-width: 1200px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 #grid-container {
   max-width: 1200px;
-  height: 100vh;
-  margin: 0 auto;
-  flex-flow: column wrap;
-  border: 1px solid black;
+  max-height: 100vh;
+  margin: 50px;
+  flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -27,8 +35,18 @@
   background-color: turquoise;
 }
 
+.test{
+  margin: left;
+}
+
 @media screen and (min-width: 800px) {
   .column {
     flex: 1;
   }
+}
+
+.btn-info.focus, .btn-info:focus {
+  color: #fff;
+  border-color:#17a2b8 !important;
+  background-color: #17a2b8 !important;
 }
