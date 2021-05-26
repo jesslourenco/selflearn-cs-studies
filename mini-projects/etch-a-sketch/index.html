@@ -9,17 +9,21 @@
     </head>
 
     <body>
+        <header>
+            <center>(Etch a Sketch)</center>
+        </header>
         <div id="container-round">
             <div id="grid-container"></div>
                 <div class="grid-footer">
-                    <button type="button" class="btn btn-lg btn-info shadow-none mr-2" onclick="resizeEvent()">Grid Size</button>
-                    <button type="button" class="btn btn-lg btn-info shadow-none mr-2" onclick="clearGridEvent()">Clear</button>
+                    <button type="button" class="btn btn-lg btn-info shadow-none mr-2" onclick="resetEvent()">Reset Settings</button>
+                    <button type="button" class="btn btn-lg btn-info shadow-none mr-2" onclick="resizeEvent()">New Size</button>
+                    <button type="button" class="btn btn-lg btn-info shadow-none mr-2" onclick="clearGridEvent()">Clear Grid</button>
                 </div>
                 <div class="grid-footer">
                     <div class="btn-group" role="group" aria-label="Sketch Mode">
-                        <button id="classic" type="button" class="btn btn-warning">Classic Mode</button>
-                        <button id="modern" type="button" class="btn btn-warning">Modern Mode</button>
-                        <button id="colorful"type="button" class="btn btn-warning">Colorful Mode</button>
+                        <button id="classic" type="button" class="btn btn-light" autofocus="autofocus" onclick="onEventClick('classic')">Classic Mode</button>
+                        <button id="modern" type="button" class="btn btn-light" onclick="onEventClick('modern')">Darken Mode</button>
+                        <button id="colorful"type="button" class="btn btn-light" onclick="onEventClick('rainbow')">Colorful Mode</button>
                     </div>               
             </div> 
         </div>

@@ -29,27 +29,34 @@ function clearGridEvent(){
     const div_col = document.querySelectorAll('.colGrid');
     div_col.forEach((item) => {
             item.style.backgroundColor = '';
+            item.style.filter = "";
     });
 }
 
-function randomColor() {
-
-}
-
-function countForColor() {
-
-}
 
 function classicEvent(event) {
     event.target.style.backgroundColor = '#36454F';
 }
 
 function randomColorEvent(event) {
-    event.target.style.backgroundColor = randomColor();
+    if(event.target.style.filter){ 
+        event.target.style.filter = "";
+    }
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    event.target.style.backgroundColor = "#" + randomColor;
 }
 
 function modernEvent(event) {
-    event.target.style.backgroundColor = randomColor();
+    let shade = 90;
+    if(!event.target.style.filter) {
+        event.target.style.filter = `brightness(${shade}%)`;
+        return;
+    }
+
+    let filter = event.target.style.filter;
+    let current_shade = filter.replace("brightness(", "").replace("%)", "");
+    event.target.style.filter = `brightness(${current_shade - 10}%)`;
+
 }
       
 function getGridSize(){
@@ -77,9 +84,14 @@ function validateUserInput(userInput){
 
 function resizeEvent(){
     let gridSize = getGridSize();
-
     if(!gridSize) return;
 
+    deleteGrid();
+
+    createGrid(gridSize, gridSize, classicEvent);
+}
+
+function deleteGrid(){
     const container = document.querySelector('#grid-container');
     const div_row = document.querySelectorAll('.row');
 
@@ -89,7 +101,38 @@ function resizeEvent(){
     while (container.firstChild){
         container.removeChild(container.firstChild);
     }
-    createGrid(gridSize, gridSize, classicEvent);
+}
+
+function resetEvent(){
+    clearGridEvent();
+
+    deleteGrid();
+
+    createGrid(STD_GRID_SIZE, STD_GRID_SIZE, classicEvent);
+}
+
+function onEventClick(mode){
+    const div_col = document.querySelectorAll('.colGrid');    
+    
+    switch(mode){
+        case 'rainbow':
+            mode = randomColorEvent;
+            break;
+        case 'classic':
+            mode = classicEvent;
+            break;
+        case 'modern':
+            mode = modernEvent;
+            break;
+    } 
+
+        div_col.forEach((item) => {
+            const old_element = item;
+            const new_element = old_element.cloneNode(true);
+            old_element.parentNode.replaceChild(new_element, old_element);
+            new_element.addEventListener('mouseover', mode);
+    });
+
 }
 
 createGrid(STD_GRID_SIZE, STD_GRID_SIZE, classicEvent);

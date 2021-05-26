@@ -1,19 +1,31 @@
+@font-face {
+  font-family: millaCilla;
+  src: url(milla-cilla.otf);
+}
+
+header {
+  margin: auto;
+  font-family: millaCilla; 
+  font-size: 8rem;
+}
+
 #grid-container {
   width: 600px;
   height: 600px;
-  margin: 30px auto;
+  margin: 20px auto;
   flex-flow: column nowrap;
   align-items: center;  
-  display: flex;  
+  display: flex;
+   
 }
 
 #container-round {
   border-radius: 25px;
   border: 2px solid palevioletred;
   background-color: palevioletred;
-  margin: 25px auto;
-  width: 700px;
-  height: 800px;  
+  margin: auto;
+  width: 650px;
+  height: 750px;  
 }
 
 .rowGrid {
@@ -43,4 +55,6 @@
   justify-content: center;
   margin: 10px auto;
 }
+
+
 
