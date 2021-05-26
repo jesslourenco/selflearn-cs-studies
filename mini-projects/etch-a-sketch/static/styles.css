@@ -37,7 +37,7 @@ header {
 }
 
 .colGrid {
-  border: 1px solid pink;
+  margin: 0.5px;
   background-color: whitesmoke;
   flex-grow: 1;
   max-width: 100%;
@@ -55,6 +55,7 @@ header {
   justify-content: center;
   margin: 10px auto;
 }
+
 
 
 

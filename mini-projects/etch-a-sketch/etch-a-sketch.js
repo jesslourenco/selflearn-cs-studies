@@ -107,7 +107,7 @@ function resetEvent(){
     clearGridEvent();
 
     deleteGrid();
-
+    
     createGrid(STD_GRID_SIZE, STD_GRID_SIZE, classicEvent);
 }
 
