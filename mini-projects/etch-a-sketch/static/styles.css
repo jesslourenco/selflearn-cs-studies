@@ -14,7 +14,7 @@ header {
   height: 600px;
   margin: 20px auto;
   flex-flow: column nowrap;
-  align-items: center;  
+   
   display: flex;
    
 }
