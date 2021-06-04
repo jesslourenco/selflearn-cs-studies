@@ -1,13 +1,10 @@
-.standard{
+body{
     background-color: #3A4663;
     font-family: 'Spartan';
-}
-    
-.lightTheme{}
+    color: white;
+} 
 
-.darkTheme{}
-
-/* <---- Calculator Grid -----> */
+/*  Containers  */
 
 #container{
     display: flex;
@@ -26,7 +23,7 @@
     margin-bottom: auto;
 }
 
-#calcScreen{
+#calcScreenContainer{
     width: 540px;
     height: 128px;
     background: #181F33;
@@ -51,55 +48,62 @@
     margin: auto;
 }
 
-.row{
-    color: #434A59;
+/*  Elements inside containers  */
+
+.row{    
     flex: 1 1 auto;
     display: flex;
     height:64px; 
 }
 
-.last{
+.lastRow{
     order: 1;
 }
 
 .col{
-    display:flex;  
+    display:flex;      
     margin: 10px;
-    width: 101px;
-    background-color: #EAE3DC;
+    width: 101px;    
     flex: 1 0 auto;;
-    border-radius: 10px;
-    box-shadow: inset 0px -4px 0px #B3A497;  
-    font-size: 32px;
+    border-radius: 10px;  
     align-items: center;
     justify-content: center;
-
 }
 
-#deleteButton{
-    background-color: #647198;
-    box-shadow: inset 0px -4px 0px #414E73;
+.btn-std{
+    color: #434A59;
+    background-color: #EAE3DC;
+    box-shadow: inset 0px -4px 0px #B3A497;
+    font-size: 32px; 
+}
+
+.screenBox{
+    max-height: 54px;
+    max-width: 478px;
+    margin: 37px auto;
+    font-size: 48px;
+    text-align: right;   
+}
+
+#textHeader{
+    bottom: 0;
+    font-size: 32px;
+    margin: 10px auto;
+}
+
+/*  Styles for special buttons and screen digits */
+
+.btn-fontStyles{
     color:white;
     font-size: 20px;
+}
+
+.btn-resetDel{
+    background-color: #647198;
+    box-shadow: inset 0px -4px 0px #414E73;
 }
 
 #equalButton{
     background-color: #D03F2F;
-    box-shadow: inset 0px -4px 0px #93261A;
-    max-width:227px;
-    color:white;
-    font-size: 20px;
-    height:64px; 
+    box-shadow: inset 0px -4px 0px #93261A;    
 }
-
-#resetButton{
-    background-color: #647198;
-    box-shadow: inset 0px -4px 0px #414E73;
-    max-width:227px;
-    color:white;
-    font-size: 20px;
-    height:64px; 
-}
-
-
-.themeToggle{}

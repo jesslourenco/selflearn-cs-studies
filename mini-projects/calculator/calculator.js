@@ -6,7 +6,7 @@ function createRow() {
 
 function createCol() {
     let div_col = document.createElement('div');
-    div_col.className = 'col';
+    div_col.className += 'col btn-std';
     return div_col;
 }
 
@@ -22,7 +22,7 @@ function createGrid() {
             col.addEventListener('onclick', onEventClick);
             row.appendChild(col);
             col.innerHTML += addButtonItem(index);
-            if (index === 3) { col.id = 'deleteButton';}  
+            if (index === 3) { col.className += ' btn-fontStyles btn-resetDel';}  
             index++;
         }
         container.appendChild(row);

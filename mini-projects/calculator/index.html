@@ -11,15 +11,19 @@
         <title>Welcome to the calculator app!</title>
     </head>
 
-    <body class="standard">
+    <body>
         <div id="container">
-            <div id="calcHeader">calc</div>
-            <div id="calcScreen"></div>
+            <div id="calcHeader">
+                <div id="textHeader">calc</div>
+            </div>
+            <div id="calcScreenContainer"> 
+                <div class="screenBox">666,666</div>
+            </div>
             <div id="calcBody">
                 <div id="calcPad">
-                    <div class="last row fontCalc">
-                        <div id="resetButton" class="col">RESET</div>
-                        <div id="equalButton" class="col"> = </div>  
+                    <div class="lastRow row fontCalc">
+                        <div class="col btn-fontStyles btn-resetDel">RESET</div>
+                        <div id="equalButton" class="col btn-fontStyles"> = </div>  
                     </div> 
                 </div>
             </div>          
