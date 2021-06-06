@@ -5,43 +5,43 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
         <link href="static/styles.css" rel="stylesheet">
+        <link href="static/light-theme.css" rel="stylesheet">
+        <link href="static/dark-theme.css" rel="stylesheet">
+        <link href="static/classic-theme.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
 
         <title>Welcome to the calculator app!</title>
     </head>
 
-    <body>
+    <body class="theme-classic">
         <div id="main-container">
             <div id="calc-header-container">
                 <div class="leftmost-box">
                     calc
                 </div>
-                <!-- light/dark mode-->
 
-                <!-- <div class="theme-switch-box"> -->             
+                <!-- theme selection -->
+          
                 <div class="rightmost-box">
                     <div id="theme-text">THEME</div>
                     <div class="theme-switch-box">
                         <div class="theme-number">
-                            <label for="classic" onclick>1</label>
-                            <label for="light" onclick>2</label>
-                            <label for="dark" onclick>3</label>
+                            <label for="classic-theme-option">1</label>
+                            <label for="light-theme-option">2</label>
+                            <label for="dark-theme-option">3</label>
                         </div>
                         <div class="theme-switch">
                             <div class="switch">
-                                <div class="theme-switch-toggle">&nbsp;</div> 
-                                    <input id="classic-theme-option" name="themes" value="classic" type="radio">
-                                        <label for="classic-theme-option" onclick></label>
-                                    <input id="light-theme-option" name="themes" value="light" type="radio"/>
-                                        <label for="light-theme-option" onclick></label>
-                                    <input id="dark-theme-option" name="themes" value="dark" type="radio"/>
-                                        <label for="dark-theme-option" onclick></label>
-                                                             
+                                <div id="theme-selection"class="theme-switch-toggle selected-option1">&nbsp;</div> 
+                                <input id="classic-theme-option" name="themes" value="classic" type="radio" onclick="themeSelection()" checked="checked"/>
+                                    <label for="classic-theme-option"></label>
+                                <input id="light-theme-option" name="themes" value="light" type="radio" onclick="themeSelection()"/>
+                                    <label for="light-theme-option"></label>
+                                <input id="dark-theme-option" name="themes" value="dark" type="radio" onclick="themeSelection()"/>
+                                    <label for="dark-theme-option"></label>                      
                             </div>
-                        </div>
-                            
-                            
+                        </div>                     
                     </div>
 
                 </div>

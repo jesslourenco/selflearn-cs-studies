@@ -1,0 +1,55 @@
+.theme-light {
+    background-color: #E6E6E6;
+    color: #36362C;
+}
+
+.theme-light #calc-screen-container{
+    background-color: #EEEEEE;
+    color:#36362C;
+}
+
+.theme-light #calc-body-container, .theme-light .theme-switch{
+    background-color: #D2CDCD;
+}
+
+.theme-light .theme-switch-toggle:hover{
+    background-color: #F96B5B !important;   
+}
+
+.theme-light .theme-switch-toggle:hover ~ input{
+    pointer-events: none;   
+}
+
+.theme-light .theme-switch-toggle{
+    background-color:#C85402;
+}
+
+.theme-light #btn-equal:hover{
+    background-color: #F96B5B;
+}
+
+.theme-light #btn-equal, .theme-light #btn-equal:active{
+    background-color:#C85402;
+    box-shadow: inset 0px -4px 0px #873901;
+}
+
+
+.theme-light .btn-std:hover {
+    background-color: #FFFFFF;
+}
+
+.theme-light .btn-std, .theme-light .btn-std:active {
+    background-color: #E5E4E1;
+    box-shadow: inset 0px -4px 0px #A79E91;
+    color:#36362C;
+    font-size: 32px; 
+}
+
+.theme-light .btn-resetDel:hover{
+    background-color: #62B5BC;
+}
+
+.theme-light .btn-resetDel, .theme-light .btn-resetDel:active{
+    background-color: #378187;
+    box-shadow: inset 0px -4px 0px #1B6066;
+}

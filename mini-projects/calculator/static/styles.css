@@ -1,7 +1,7 @@
 body{
-    background-color: #3A4663;
+    background-color: #edeef0f1;
     font-family: 'Spartan';
-    color: white;
+    color: #1f232c;
 } 
 
 *{
@@ -15,7 +15,6 @@ body{
     width: 540px;
     height: 708px;
     margin: 96px auto; 
-    border: 5px solid #3A4663;
     border-radius: 10px;
     flex-flow: column nowrap;
     align-items: space-between;
@@ -33,7 +32,8 @@ body{
 #calc-screen-container{
     width: 540px;
     height: 128px;
-    background: #181F33;
+    background: #222429;
+    color: #ffff;
     border-radius: 10px;
     cursor: default;   
 }
@@ -42,7 +42,7 @@ body{
     display: flex;
     width: 540px;
     height: 480px;
-    background: #242D44;
+    background-color: #33373f;
     border-radius: 10px;
     margin-top: auto;
     cursor: pointer;   
@@ -68,11 +68,50 @@ body{
     margin-right: 21px;
 }
 
+
+.switch .selected-option1 {
+    transform: translatex(0em);
+}
+
+.switch .selected-option2 {
+    transform: translatex(2em);
+}
+
+.switch .selected-option3 {
+    transform: translatex(4em);
+}
+
+
+.switch{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.theme-switch{
+    width: 71px;
+    border-radius: 13px;
+    background-color: #141414;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.theme-switch-toggle{
+    width: 16px;
+    height: 16px;
+    background-color: #bebaba;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.50s ease-in-out;
+    transform-origin: top left;
+    transform: translateY(1px);
+    position: absolute;  
+}
+
 .theme-number{
     display: flex;
     order: 5;
-    justify-content: space-between;
-    padding: 0px 5px 5px 5px; 
+    justify-content: space-around;
 }
 
 .theme-number label{
@@ -83,30 +122,6 @@ input{
     opacity:0;
     cursor: pointer;
 }
-.switch{
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-}
-
-.theme-switch{
-    width: 71px;
-    border-radius: 13px;
-    background-color: #242D44;
-    padding: 5px;
-    box-sizing: border-box;
-}
-
-.theme-switch-toggle{
-    width: 16px;
-    height: 16px;
-    background-color: #D03F2F;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 250ms ease-in-out;
-    position: absolute;  
-}
-
 
 /* Screen */
 
@@ -156,31 +171,35 @@ input{
     font-size: 20px !important;
 }
 
-.btn-std{
-    color: #434A59;
-    background-color: #EAE3DC;
-    box-shadow: inset 0px -4px 0px #B3A497;
-    font-size: 32px; 
-}
-
-.btn-std:active{
+.btn-std:hover{
     background-color: #FFFFFE;
 }
 
-.btn-resetDel{
-    background-color: #647198;
-    box-shadow: inset 0px -4px 0px #414E73;
+.btn-std, .btn-std:active{
+    background-color: #d1d1cfbe;
+    color: #4e5158;
+    box-shadow: inset 0px -4px 0px #41403f;
+    font-size: 32px; 
 }
 
-.btn-resetDel:active{
-    background-color: #A2B2E1;
+.btn-resetDel:hover{
+    background-color: #80807e;
 }
 
-#btn-equal{
-    background-color: #D03F2F;
-    box-shadow: inset 0px -4px 0px #93261A;    
+.btn-resetDel, .btn-resetDel:active{
+    background-color: #333232;
+    color: #f9fafc;
+    box-shadow: inset 0px -4px 0px #030303;
 }
 
-#btn-equal:active{
-    background-color: #F96B5B;
+#btn-equal:hover{
+    background-color: #80807e;
 }
+
+#btn-equal, #btn-equal:active{
+    background-color: #070707;
+    color: #f9fafc;
+    box-shadow: inset 0px -4px 0px #0a0909;    
+}
+
+
