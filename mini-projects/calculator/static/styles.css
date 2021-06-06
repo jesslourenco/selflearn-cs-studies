@@ -4,10 +4,9 @@ body{
     color: white;
 } 
 
-* {
-    box-sizing: border-box;
+*{
+    user-select: none;
 }
-
 
 /*  Containers  */
 
@@ -28,14 +27,15 @@ body{
     height: 44px;
     margin-bottom: auto;
     justify-content: space-between;
-    border: 2px solid white;
+    cursor: default;
 }
 
 #calc-screen-container{
     width: 540px;
     height: 128px;
     background: #181F33;
-    border-radius: 10px;   
+    border-radius: 10px;
+    cursor: default;   
 }
 
 #calc-body-container{
@@ -44,7 +44,8 @@ body{
     height: 480px;
     background: #242D44;
     border-radius: 10px;
-    margin-top: auto;   
+    margin-top: auto;
+    cursor: pointer;   
 }
 
 
@@ -53,44 +54,47 @@ body{
 /* Header */
 
 .leftmost-box{
-    margin-top: auto;
     font-size: 32px;
-    border: 2px solid red;  
+    padding-top: 14px;  
 }
 
 .rightmost-box{
     display: flex;
-    font-size: 12px; 
-    border: 2px solid greenyellow;   
+    font-size: 12px;  
 }
 
 #theme-text{
     margin: auto;
-    border: 2px solid pink;
+    margin-right: 21px;
 }
 
 .theme-number{
-    border: 2px solid blue;
-    justify-content: space-between;
     display: flex;
-    order:5;
-}
-.switch{
-    border: 2px solid orange; 
-    width: 100%; 
+    order: 5;
+    justify-content: space-between;
+    padding: 0px 5px 5px 5px; 
 }
 
-.theme-switch-box{
-    border: 2px solid purple; 
+.theme-number label{
+    cursor: pointer;
+}
+
+input{
+    opacity:0;
+    cursor: pointer;
+}
+.switch{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
 }
 
 .theme-switch{
     width: 71px;
     border-radius: 13px;
     background-color: #242D44;
-    border: 2px solid white;
-    cursor: pointer;
     padding: 5px;
+    box-sizing: border-box;
 }
 
 .theme-switch-toggle{
@@ -100,6 +104,7 @@ body{
     border-radius: 10px;
     cursor: pointer;
     transition: all 250ms ease-in-out;
+    position: absolute;  
 }
 
 
@@ -158,12 +163,24 @@ body{
     font-size: 32px; 
 }
 
+.btn-std:active{
+    background-color: #FFFFFE;
+}
+
 .btn-resetDel{
     background-color: #647198;
     box-shadow: inset 0px -4px 0px #414E73;
 }
 
+.btn-resetDel:active{
+    background-color: #A2B2E1;
+}
+
 #btn-equal{
     background-color: #D03F2F;
     box-shadow: inset 0px -4px 0px #93261A;    
+}
+
+#btn-equal:active{
+    background-color: #F96B5B;
 }
