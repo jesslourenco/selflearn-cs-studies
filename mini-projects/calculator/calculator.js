@@ -13,7 +13,7 @@ function createCol() {
 function createGrid() {
     const rowNum = 4;
     const colNum = 4;
-    const container = document.querySelector('#calcPad');
+    const container = document.querySelector('#buttons-grid');
     let index = 0;
     for (let i = 0; i < rowNum; i++) {
         const row = createRow();

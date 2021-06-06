@@ -4,9 +4,14 @@ body{
     color: white;
 } 
 
+* {
+    box-sizing: border-box;
+}
+
+
 /*  Containers  */
 
-#container{
+#main-container{
     display: flex;
     width: 540px;
     height: 708px;
@@ -17,20 +22,23 @@ body{
     align-items: space-between;
 }
 
-#calcHeader{
+#calc-header-container{
+    display: flex;
     width: 540px;
     height: 44px;
     margin-bottom: auto;
+    justify-content: space-between;
+    border: 2px solid white;
 }
 
-#calcScreenContainer{
+#calc-screen-container{
     width: 540px;
     height: 128px;
     background: #181F33;
     border-radius: 10px;   
 }
 
-#calcBody{
+#calc-body-container{
     display: flex;
     width: 540px;
     height: 480px;
@@ -39,7 +47,75 @@ body{
     margin-top: auto;   
 }
 
-#calcPad{
+
+/*  Elements inside high level containers  */
+
+/* Header */
+
+.leftmost-box{
+    margin-top: auto;
+    font-size: 32px;
+    border: 2px solid red;  
+}
+
+.rightmost-box{
+    display: flex;
+    font-size: 12px; 
+    border: 2px solid greenyellow;   
+}
+
+#theme-text{
+    margin: auto;
+    border: 2px solid pink;
+}
+
+.theme-number{
+    border: 2px solid blue;
+    justify-content: space-between;
+    display: flex;
+    order:5;
+}
+.switch{
+    border: 2px solid orange; 
+    width: 100%; 
+}
+
+.theme-switch-box{
+    border: 2px solid purple; 
+}
+
+.theme-switch{
+    width: 71px;
+    border-radius: 13px;
+    background-color: #242D44;
+    border: 2px solid white;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.theme-switch-toggle{
+    width: 16px;
+    height: 16px;
+    background-color: #D03F2F;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+
+/* Screen */
+
+.screen-box{
+    max-height: 54px;
+    max-width: 478px;
+    margin: 37px auto;
+    font-size: 48px;
+    text-align: right;   
+}
+
+/* Buttons Grid */
+
+#buttons-grid{
     display: flex;
     width: 478px;
     height: 416px;
@@ -47,17 +123,10 @@ body{
     align-self: center;
     margin: auto;
 }
-
-/*  Elements inside containers  */
-
 .row{    
     flex: 1 1 auto;
     display: flex;
     height:64px; 
-}
-
-.lastRow{
-    order: 1;
 }
 
 .col{
@@ -70,6 +139,18 @@ body{
     justify-content: center;
 }
 
+
+.last-row{
+    order: 1;
+}
+
+/*  Button styles */
+
+.btn-fontStyles{
+    color:white !important;
+    font-size: 20px !important;
+}
+
 .btn-std{
     color: #434A59;
     background-color: #EAE3DC;
@@ -77,33 +158,12 @@ body{
     font-size: 32px; 
 }
 
-.screenBox{
-    max-height: 54px;
-    max-width: 478px;
-    margin: 37px auto;
-    font-size: 48px;
-    text-align: right;   
-}
-
-#textHeader{
-    bottom: 0;
-    font-size: 32px;
-    margin: 10px auto;
-}
-
-/*  Styles for special buttons and screen digits */
-
-.btn-fontStyles{
-    color:white;
-    font-size: 20px;
-}
-
 .btn-resetDel{
     background-color: #647198;
     box-shadow: inset 0px -4px 0px #414E73;
 }
 
-#equalButton{
+#btn-equal{
     background-color: #D03F2F;
     box-shadow: inset 0px -4px 0px #93261A;    
 }

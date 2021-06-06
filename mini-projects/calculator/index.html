@@ -12,18 +12,64 @@
     </head>
 
     <body>
-        <div id="container">
-            <div id="calcHeader">
-                <div id="textHeader">calc</div>
+        <div id="main-container">
+            <div id="calc-header-container">
+                <div class="leftmost-box">
+                    calc
+                </div>
+                <!-- light/dark mode-->
+
+                <!-- <div class="theme-switch-box"> -->
+                <!--<div class="rightmost-box">
+                    <div id="theme-text">THEME
+                        <input type="checkbox" id="input-theme-swtich">
+                    </div>
+                    <div class="theme-switch-box">
+                        <div id="theme-number">1 2 3</div>
+                        <label for="input-theme-swtich" class="theme-switch">                    
+                            <div class="theme-switch-toggle"></div>
+                        </label>
+                    </div>
+                </div>-->
+                <div class="rightmost-box">
+                    <div id="theme-text">THEME
+                        <input type="checkbox" id="input-theme-swtich">
+                    </div>
+                    <div class="theme-switch-box">
+                        <div class="theme-number">
+                            <label>1</label>
+                            <label>2</label>
+                            <label>3</label>
+                        </div>
+                        <div class="switch">
+                            <input />
+                            <label>1</label>
+                            <input />
+                            <label>2</label>
+                            <input />
+                            <label>3</label>
+                        </div>
+                            
+                            
+                    </div>
+
+                </div>
+
             </div>
-            <div id="calcScreenContainer"> 
-                <div class="screenBox">666,666</div>
+            <div id="calc-screen-container"> 
+                <div class="screen-box">
+                    666,666
+                </div>
             </div>
-            <div id="calcBody">
-                <div id="calcPad">
-                    <div class="lastRow row fontCalc">
-                        <div class="col btn-fontStyles btn-resetDel">RESET</div>
-                        <div id="equalButton" class="col btn-fontStyles"> = </div>  
+            <div id="calc-body-container">
+                <div id="buttons-grid">
+                    <div class="last-row row">
+                        <div class="col btn-fontStyles btn-resetDel">
+                            RESET
+                        </div>
+                        <div id="btn-equal" class="col btn-fontStyles"> 
+                            = 
+                        </div>  
                     </div> 
                 </div>
             </div>          
