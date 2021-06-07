@@ -8,7 +8,7 @@
 }
 
 .theme-classic #calc-body-container, .theme-classic .theme-switch{
-    background-color: #181F33;
+    background-color: #242D44;
 }
 
 .theme-classic .theme-switch-toggle{
@@ -19,7 +19,8 @@
     background-color: #F96B5B !important;   
 }
 
-.theme-classic .theme-switch-toggle:hover ~ input{
+.theme-classic .theme-switch-toggle:hover ~ input{ 
+    /* input class updates when hover state is in effect*/
     pointer-events: none;   
 }
 
