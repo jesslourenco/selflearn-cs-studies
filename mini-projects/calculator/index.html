@@ -54,18 +54,16 @@
 
             </div>
             <div id="calc-screen-container"> 
-                <div class="screen-box">
-                    6,666.66
-                </div>
+                <div id = "screen" class="screen-box"></div>
             </div>
             <!-- Calculator's buttons -->
             <div id="calc-body-container">
                 <div id="buttons-grid">
                     <div class="last-row row">
-                        <div class="col btn-fontStyles btn-resetDel">
+                        <div class="col btn-fontStyles btn-resetDel" onclick="getDigit('RESET')">
                             RESET
                         </div>
-                        <div id="btn-equal" class="col btn-fontStyles"> 
+                        <div class="col btn-fontStyles btn-equal" onclick="getDigit('=')"> 
                             = 
                         </div>  
                     </div> 

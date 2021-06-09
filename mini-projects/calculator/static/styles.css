@@ -192,11 +192,11 @@ input{
     box-shadow: inset 0px -4px 0px #030303;
 }
 
-#btn-equal:hover{
+.btn-equal:hover{
     background-color: #80807e;
 }
 
-#btn-equal, #btn-equal:active{
+.btn-equal, .btn-equal:active{
     background-color: #070707;
     color: #f9fafc;
     box-shadow: inset 0px -4px 0px #0a0909;    

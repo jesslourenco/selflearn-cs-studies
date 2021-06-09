@@ -1,4 +1,4 @@
-// Builder functions 
+// Layout Builder functions 
 
 function createRow() {
     const div_row = document.createElement('div');
@@ -21,9 +21,12 @@ function createGrid() {
         const row = createRow();
         for (let j = 0; j < colNum; j++) {
             const col = createCol();
-            col.addEventListener('onclick', clickEffect);
             row.appendChild(col);
-            col.innerHTML += addButtonItem(index);
+            let item = addButtonItem(index);
+            col.innerHTML += item;
+            col.setAttribute('id', item);
+            //col.addEventListener('onclick', getDigit);
+            col.onclick = function() { getDigit(item); } 
             if (index === 3) { col.className += ' btn-fontStyles btn-resetDel';}  
             index++;
         }
@@ -36,7 +39,7 @@ function addButtonItem(index){
     return items[index];
 }
 
-// Event Functions
+// CSS Event Functions
 function themeSelection(){
     let selection;
     const options = document.getElementsByName('themes');
@@ -93,9 +96,31 @@ function classicTheme(){
     document.querySelector('body').className = 'theme-classic';
 }
 
-function clickEffect(event){
-    event.target.style.backgroundColor = '#FFFFFE';
+// Calculator functions
+
+function getDigit(digit){
+    if (digit !== '=' && digit !== 'RESET' && digit !== 'DEL'){
+        document.getElementById('screen').innerHTML += digit;
+    } 
+    return console.log(digit);
 }
 
+function validateExpression(){}
+
+function formatInputs(){}
+
+function operate(){}
+
+function showOnScreen(){}
+
+function sum(){}
+
+function subtract(){}
+
+function multiply(){}
+
+function divide(){}
+
+function reset(){}
 
 createGrid();

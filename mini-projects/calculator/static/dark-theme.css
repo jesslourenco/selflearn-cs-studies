@@ -24,11 +24,11 @@
     pointer-events: none;   
 }
 
-.theme-dark #btn-equal:hover{
+.theme-dark .btn-equal:hover{
     background-color: #93FFF8;
 }
 
-.theme-dark #btn-equal, .theme-dark #btn-equal:active{
+.theme-dark .btn-equal, .theme-dark .btn-equal:active{
     background-color:#00DED0;
     box-shadow: inset 0px -4px 0px #6CF9F1;
 }
