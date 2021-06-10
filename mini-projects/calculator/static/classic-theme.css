@@ -33,7 +33,7 @@
     box-shadow: inset 0px -4px 0px #93261A;
 }
 
-.theme-classic .btn-std:hover{
+.theme-classic .btn-std:hover, .theme-classic .btn-std:focus{
     background-color: #FFFFFE;
 }
 

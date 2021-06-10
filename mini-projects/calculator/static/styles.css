@@ -171,7 +171,7 @@ input{
     font-size: 20px !important;
 }
 
-.btn-std:hover{
+.btn-std:hover {
     background-color: #FFFFFE;
 }
 
@@ -200,6 +200,11 @@ input{
     background-color: #070707;
     color: #f9fafc;
     box-shadow: inset 0px -4px 0px #0a0909;    
+}
+
+.dot-disabled{
+    pointer-events: none;
+    opacity: 0.4;
 }
 
 

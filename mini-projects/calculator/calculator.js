@@ -1,3 +1,7 @@
+let operator;
+let auxNum;
+let numOnScreen;
+
 // Layout Builder functions 
 
 function createRow() {
@@ -24,10 +28,10 @@ function createGrid() {
             row.appendChild(col);
             let item = addButtonItem(index);
             col.innerHTML += item;
-            col.setAttribute('id', item);
-            //col.addEventListener('onclick', getDigit);
-            col.onclick = function() { getDigit(item); } 
-            if (index === 3) { col.className += ' btn-fontStyles btn-resetDel';}  
+            col.addEventListener('click', () => handleButtonClick(item));
+            if (index === 3) { col.className += ' btn-fontStyles btn-resetDel';} 
+            if (index === 12) { col.id = 'decimalSeparator'; }
+            if (index === 7 || index === 11 || index === 14 || index === 15) { col.className += ' btn-operators'; }
             index++;
         }
         container.appendChild(row);
@@ -96,31 +100,139 @@ function classicTheme(){
     document.querySelector('body').className = 'theme-classic';
 }
 
-// Calculator functions
+/// Calculator functions ///
 
-function getDigit(digit){
-    if (digit !== '=' && digit !== 'RESET' && digit !== 'DEL'){
-        document.getElementById('screen').innerHTML += digit;
-    } 
-    return console.log(digit);
+function handleButtonClick(value){ 
+    console.log('value is ' + value);
+
+    const operators = ['x', '/', '+', '-'];
+    
+    if (Number.isInteger(parseInt(value)) === true){
+        showOnScreen(value);
+    }
+
+
+    if (operators.includes(value)){
+        if (!document.getElementById('screen').innerHTML){
+            return;
+        } 
+        if (operator !== undefined && numOnScreen === undefined){
+            numOnScreen = document.getElementById('screen').innerHTML;
+            console.log(auxNum + ' ' + operator + ' ' + numOnScreen);
+            numOnSCreen = calculateResult(operator, auxNum, numOnScreen);
+            console.log('result is: ' + numOnScreen)
+            operator = auxNum = undefined;
+            console.log(auxNum + ' ' + operator + ' ' + numOnScreen);
+            return;
+        }
+        if (operator === undefined){
+            operator = value;
+            auxNum = document.getElementById('screen').innerHTML;
+            console.log("saved operator and aux");
+            clearScreen();
+        }
+        if (numOnScreen !== undefined && operator === undefined){
+            auxNum = numOnScreen;
+            operator = value;
+            numOnScreen = undefined;
+        }
+        
+    }
+    
+    
+    switch(value){                
+        case 'RESET':
+            clearScreen();
+            operator = auxNum = numOnScreen = undefined;
+            return;
+        case 'DEL':
+            deletevalue();
+            return;
+        /*case '=':
+            screenNum = document.getElementById('screen').innerHTML;
+            return console.log(calculateResult(operator, savedNum, screenNum));*/
+        case '.':
+            showOnScreen(value);
+            document.getElementById("decimalSeparator").className += ' dot-disabled';
+            return;
+    }     
+
+    return console.log(value);
 }
 
-function validateExpression(){}
 
-function formatInputs(){}
 
-function operate(){}
 
-function showOnScreen(){}
 
-function sum(){}
 
-function subtract(){}
+function showOnScreen(value){
+    document.getElementById('screen').innerHTML += value;
+}
 
-function multiply(){}
+function calculateResult(operator, savedNum, screenNum){
+    if(operator === '/' && parseInt(sceenNum) === 0){
+        document.getElementById('screen').innerHTML = 'Human. Math is not your strongest suit, eh?!';
+    }
 
-function divide(){}
+    let num1 = parseToNum(savedNum);
+    let num2 = parseToNum(screenNum);
+    let result = 0;
 
-function reset(){}
+    switch(operator){
+        case '/':
+            result = divide(num1,num2);
+            break;
+        case 'x':
+            result = multiply(num1,num2);
+            break;
+        case '+':
+            result = sum(num1,num2);
+            break;
+        case '-':
+            result = subtract(num1,num2);
+            break;
+    }
+    document.getElementById('screen').innerHTML = result;
+    return result;
+}
+
+function parseToNum(str){
+    let num = 0;
+
+    if (str.includes('.')){ 
+        num = parseFloat(str)
+    }
+    else{
+        num = parseInt(str)
+    }
+
+    return num;
+}
+
+function sum(num1,num2){
+    return num1+num2;
+}
+
+function subtract(num1,num2){
+    return num1-num2;
+}
+
+function multiply(num1,num2){
+    return num1*num2;
+}
+
+function divide(num1,num2){
+    return num1/num2;
+}
+
+function clearScreen(){
+    document.getElementById('screen').innerHTML = '';
+}
+
+function deletevalue(){
+    let str = document.getElementById('screen').innerHTML;
+    str.pop();
+    showOnScreen(str);
+}
 
 createGrid();
