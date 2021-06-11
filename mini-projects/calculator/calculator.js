@@ -1,6 +1,7 @@
 let operator;
-let auxNum;
-let numOnScreen;
+let operatorState;
+let num1;
+let num2;
 
 // Layout Builder functions 
 
@@ -103,54 +104,58 @@ function classicTheme(){
 /// Calculator functions ///
 
 function handleButtonClick(value){ 
-    console.log('value is ' + value);
 
     const operators = ['x', '/', '+', '-'];
+    let digitsOnScreen = document.getElementById('screen').innerHTML;
     
     if (Number.isInteger(parseInt(value)) === true){
-        showOnScreen(value);
+        if (operatorState){
+            operatorState = false;
+            document.getElementById("decimalSeparator").classList.remove('dot-disabled');
+            clearScreen();
+            showOnScreen(value);
+        }
+        else{
+            showOnScreen(value);
+        }
     }
-
 
     if (operators.includes(value)){
-        if (!document.getElementById('screen').innerHTML){
-            return;
-        } 
-        if (operator !== undefined && numOnScreen === undefined){
-            numOnScreen = document.getElementById('screen').innerHTML;
-            console.log(auxNum + ' ' + operator + ' ' + numOnScreen);
-            numOnSCreen = calculateResult(operator, auxNum, numOnScreen);
-            console.log('result is: ' + numOnScreen)
-            operator = auxNum = undefined;
-            console.log(auxNum + ' ' + operator + ' ' + numOnScreen);
-            return;
-        }
-        if (operator === undefined){
+        if(operator !== undefined && operatorState === true ){
             operator = value;
-            auxNum = document.getElementById('screen').innerHTML;
-            console.log("saved operator and aux");
-            clearScreen();
         }
-        if (numOnScreen !== undefined && operator === undefined){
-            auxNum = numOnScreen;
-            operator = value;
-            numOnScreen = undefined;
-        }
-        
-    }
-    
-    
+        else{
+            operatorState = true;
+            if (operator === undefined || num1 === undefined){
+                num1 = digitsOnScreen;
+                operator = value;
+            }       
+            else if (num2 === undefined){
+                num2 = digitsOnScreen;
+            }
+            if (operator !== undefined && num1 !== undefined && num2 !== undefined){        
+                let result = calculateResult(operator, num1, num2);
+                operator = value;
+                num1 = String(result);
+                num2 = undefined;  
+            }      
+        }     
+    }    
+  
     switch(value){                
         case 'RESET':
             clearScreen();
-            operator = auxNum = numOnScreen = undefined;
+            operator = num1 = num2 = undefined;
             return;
         case 'DEL':
             deletevalue();
             return;
-        /*case '=':
-            screenNum = document.getElementById('screen').innerHTML;
-            return console.log(calculateResult(operator, savedNum, screenNum));*/
+        case '=':
+            num2 = document.getElementById('screen').innerHTML;
+            result = calculateResult(operator, num1, num2);
+            num1 = num2 = operator = undefined;
+            operatorState = false;   
+            return;
         case '.':
             showOnScreen(value);
             document.getElementById("decimalSeparator").className += ' dot-disabled';
@@ -160,18 +165,17 @@ function handleButtonClick(value){
     return console.log(value);
 }
 
-
-
-
-
-
 function showOnScreen(value){
     document.getElementById('screen').innerHTML += value;
 }
 
 function calculateResult(operator, savedNum, screenNum){
-    if(operator === '/' && parseInt(sceenNum) === 0){
-        document.getElementById('screen').innerHTML = 'Human. Math is not your strongest suit, eh?!';
+    if(operator === '/' && parseInt(screenNum) === 0){
+        clearScreen();
+        let text = 'Infinity!';
+        showOnScreen(text);
+        setTimeout( () => { clearScreen();}, 1000);
+        return;
     }
 
     let num1 = parseToNum(savedNum);
@@ -192,6 +196,9 @@ function calculateResult(operator, savedNum, screenNum){
             result = subtract(num1,num2);
             break;
     }
+    if (result.toString().length > 10){
+        result.toFixed(9);
+    }
     document.getElementById('screen').innerHTML = result;
     return result;
 }
@@ -205,7 +212,6 @@ function parseToNum(str){
     else{
         num = parseInt(str)
     }
-
     return num;
 }
 
@@ -226,13 +232,20 @@ function divide(num1,num2){
 }
 
 function clearScreen(){
+    if (operatorState){
+        document.getElementById("decimalSeparator").classList.remove('dot-disabled');    
+    }
     document.getElementById('screen').innerHTML = '';
 }
 
 function deletevalue(){
-    let str = document.getElementById('screen').innerHTML;
-    str.pop();
-    showOnScreen(str);
+    let digits = document.getElementById('screen').innerHTML;
+    if (digits[digits.length-1] === '.'){
+        document.getElementById("decimalSeparator").classList.remove('dot-disabled');    
+    }
+    digits = digits.slice(0,-1);
+    clearScreen();
+    showOnScreen(digits);
 }
 
 createGrid();
